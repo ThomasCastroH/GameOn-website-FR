@@ -269,7 +269,7 @@ input[data-error]::after {
   transition: 0.3s;
   opacity: 0;
 }
-.checkbox-input {
+.checkbox-input, .checkbox-input-2 {
   display: none;
 }
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
@@ -333,6 +333,23 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+
+/* change for the close button in the thank you modal*/
+.modal-thanks {
+  display: none;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+#btn-thanks {
+  margin-top: 50px;
+  padding: 10px 40px;
+}
+
+.thanks-message {
+  text-align: center;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
