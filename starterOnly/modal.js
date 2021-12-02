@@ -11,18 +11,12 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalClose = document.querySelectorAll(".close");
-const formData = document.querySelectorAll(".formData");
 
 // Inputs
 const form = document.getElementById('form');
-const firstnameInput = document.getElementById('first');
-const lastnameInput = document.getElementById('last');
-const emailInput = document.getElementById('email');
-const birthdateInput = document.getElementById('birthdate');
-const quantityInput = document.getElementById('quantity');
+const inputIn = document.querySelectorAll('.text-control');
 const conditionsInput = document.getElementById('checkbox1');
 const citiesInput = document.querySelectorAll('[name="location"]');
-
 const btnThanks = document.getElementById("btn-thanks");
 const thanksForm = document.querySelector(".modal-thanks");
 
@@ -32,11 +26,11 @@ const nameRegex = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-Zé
 const integerRegex = /^[0-9]\d*$/;
 
 // Eventslisteners for all inputs
-firstnameInput.addEventListener("change", isFirstnameValid);
-lastnameInput.addEventListener("change", isLastnameValid);
-emailInput.addEventListener("change", isEmailValid);
-birthdateInput.addEventListener("change", isBirthdateValid);
-quantityInput.addEventListener("change", isQuantityValid);
+inputIn[0].addEventListener("change", isFirstnameValid);
+inputIn[1].addEventListener("change", isLastnameValid);
+inputIn[2].addEventListener("change", isEmailValid);
+inputIn[3].addEventListener("change", isBirthdateValid);
+inputIn[4].addEventListener("change", isQuantityValid);
 citiesInput.forEach((check) => {
   check.addEventListener("click", isCityValid);
 });
@@ -65,55 +59,55 @@ btnThanks.addEventListener("click", closeModal);
 // Functions
 // check if firstname is valid
 function isFirstnameValid() {
-  if (nameRegex.test(firstnameInput.value)) {
-    firstnameInput.parentElement.setAttribute("data-error-visible", "false");
+  if (nameRegex.test(inputIn[0].value)) {
+    inputIn[0].parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    firstnameInput.parentElement.setAttribute("data-error-visible", "true");
+    inputIn[0].parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
 
 // check if lastname is valid
 function isLastnameValid() {
-  if (nameRegex.test(lastnameInput.value)) {
-    lastnameInput.parentElement.setAttribute("data-error-visible", "false");
+  if (nameRegex.test(inputIn[1].value)) {
+    inputIn[1].parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    lastnameInput.parentElement.setAttribute("data-error-visible", "true");
+    inputIn[1].parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
 
 // check if email adress is valid
 function isEmailValid() {
-  if (emailRegex.test(emailInput.value)) {
-    emailInput.parentElement.setAttribute("data-error-visible", "false");
+  if (emailRegex.test(inputIn[2].value)) {
+    inputIn[2].parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    emailInput.parentElement.setAttribute("data-error-visible", "true");
+    inputIn[2].parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
 
 // check if birthdate is valid
 function isBirthdateValid() {
-  if (birthdateInput.value !== "") {
-    birthdateInput.parentElement.setAttribute("data-error-visible", "false");
+  if (inputIn[3].value !== "") {
+    inputIn[3].parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    birthdateInput.parentElement.setAttribute("data-error-visible", "true");
+    inputIn[3].parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
 
 // check if number of tournament played is valid
 function isQuantityValid() {
-  if (integerRegex.test(quantityInput.value)) {
-    quantityInput.parentElement.setAttribute("data-error-visible", "false");
+  if (integerRegex.test(inputIn[4].value)) {
+    inputIn[4].parentElement.setAttribute("data-error-visible", "false");
     return true;
   } else {
-    quantityInput.parentElement.setAttribute("data-error-visible", "true");
+    inputIn[4].parentElement.setAttribute("data-error-visible", "true");
     return false;
   }
 }
@@ -124,10 +118,9 @@ function isCityValid() {
       if (city.checked) {
         city.parentElement.setAttribute("data-error-visible", "false");
         return true;
-      } else {
-        city.parentElement.setAttribute("data-error-visible", "true");
       }
     }
+    city.parentElement.setAttribute("data-error-visible", "true");
     return false; 
 }
 
@@ -142,6 +135,7 @@ function isConditionsValid() {
     return false;
   }
 }
+
 
 // check if all the form is valid
 form.addEventListener("submit", function (e) {

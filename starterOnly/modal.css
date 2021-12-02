@@ -334,7 +334,7 @@ input[data-error]::after {
   border: 0;
 }
 
-/* change for the close button in the thank you modal*/
+/* change for the validation modal*/
 .modal-thanks {
   display: none;
   flex-direction: column;
