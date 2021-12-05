@@ -10,6 +10,10 @@
 }
 /* Landing Page */
 
+* {
+  border: 1px solid red;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -17,6 +21,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
+  min-width: 320px;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -69,10 +74,25 @@ img {
 }
 
 @media screen and (max-width: 768px) {
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
-    float: right;
-    display: block;
+    color: red;
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-logo img{
+    width: 50%;
+    height: 100%;
   }
 }
 
@@ -89,8 +109,6 @@ img {
     text-align: left;
   }
 }
-
-
 
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
@@ -111,8 +129,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -422,7 +438,7 @@ input[data-error]::after {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  min-height: 70vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -437,7 +453,7 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 424px;
+  min-width: 224px;
 }
 .hero-content::after {
   content: "";
@@ -503,7 +519,8 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 10px;
+    text-align: justify;
   }
   .hero-content::after {
     content: unset;
@@ -512,12 +529,13 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: unset;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .hero-img img {
     border-radius: 10px;

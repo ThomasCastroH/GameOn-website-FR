@@ -136,13 +136,18 @@ function isConditionsValid() {
   }
 }
 
+// submit form
+function submitForm() {
+  form.submit();
+}
 
 // check if all the form is valid
-form.addEventListener("submit", function (e) {
+function isFormValid(e) {
   e.preventDefault();
   if (isFirstnameValid() && isLastnameValid() && isEmailValid() && isBirthdateValid() && isQuantityValid() && isCityValid() && isConditionsValid()) {
     form.style.display = "none";
     thanksForm.style.display = "flex";
+    setTimeout(submitForm, 2000);
   } else {
     isFirstnameValid();
     isLastnameValid();
@@ -152,4 +157,7 @@ form.addEventListener("submit", function (e) {
     isCityValid();
     isConditionsValid();
   }
-});
+}
+
+// validation event
+form.addEventListener("submit", isFormValid);
