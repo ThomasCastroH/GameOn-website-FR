@@ -92,9 +92,16 @@ function isEmailValid() {
 
 // check if birthdate is valid
 function isBirthdateValid() {
-  if (inputIn[3].value !== "") {
-    inputIn[3].parentElement.setAttribute("data-error-visible", "false");
-    return true;
+  var date = new Date(inputIn[3].value);
+  var now = new Date();
+  if (date < now) {
+    if (inputIn[3].value !== "") {
+      inputIn[3].parentElement.setAttribute("data-error-visible", "false");
+      return true;
+    } else {
+      inputIn[3].parentElement.setAttribute("data-error-visible", "true");
+      return false;
+    }
   } else {
     inputIn[3].parentElement.setAttribute("data-error-visible", "true");
     return false;
